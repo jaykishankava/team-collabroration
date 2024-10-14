@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+Team Collaboration App
+Overview
+The Team Collaboration App is a simple web application built using React.js that allows users to manage tasks, apply filters, and track their progress. It features user authentication, task management, and local storage for persistence. The app is designed to help teams collaborate by organizing tasks with features such as priority assignment, status updates, and due dates.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Features
+1. Authentication System:
+Users can register, log in, and log out using a basic authentication context (AuthContext).
+After login, users are redirected to the dashboard, where they can view and manage tasks.
+2. Task Management:
+Users can create new tasks by filling out a form. Each task has a:
+Title
+Status (In Progress or Completed)
+Priority (High, Medium, Low)
+Due date
+Tasks are stored in the browser’s local storage, ensuring persistence between sessions.
+3. Filtering Tasks:
+Tasks can be filtered by:
+Status
+Priority
+Due date
+The filtering system helps users focus on specific tasks depending on their needs.
+4. Task Operations:
+Add Task: Users can create tasks through a form and assign necessary fields such as title, status, priority, and due date.
+Update Task: Users can update the status of tasks (e.g., mark a task as "Completed").
+Delete Task: Users can delete tasks they no longer need.
+Components
+1. Dashboard
+The main area where users manage their tasks.
+Displays a list of tasks with options to filter by status, priority, and due date.
+Allows users to update the status of tasks to "Completed" or delete tasks altogether.
+2. TaskForm
+A form component that allows users to create new tasks by entering details such as task title, status, priority, and due date.
+3. TaskList
+A simple display component that lists all the tasks from the task context, showing their title.
+4. Login
+A form that enables users to log in to their accounts by entering their email and password.
+After login, users are redirected to the dashboard to manage their tasks.
+5. Header
+Contains navigation links for logging in or registering.
+Once logged in, the user’s email is displayed along with a logout button.
+Context
+1. AuthContext
+Provides authentication functionality across the app. It manages user login, logout, and user session information.
+2. TaskContext
+(Potential Feature) Could be extended to manage tasks globally in the future, making it easier to access tasks across different components.
+Technologies Used
+React.js: Core framework for building user interfaces.
+React Router: For handling navigation between login, register, and dashboard views.
+CSS: Basic styling.
+Local Storage: To persist tasks across user sessions.
+React Context API: For managing global state such as authentication and tasks.
+Future Improvements
+TaskContext Implementation: Currently, tasks are managed in the Dashboard component. Using a global TaskContext will allow better scalability.
+User-specific Task Storage: Move from local storage to a database to allow different users to have their own set of tasks.
+Notifications: Add notifications to alert users of upcoming due dates or completed tasks.

@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AuthProvider from './context/AuthContext';
+import TaskProvider from './context/TaskContext';
+import ChatProvider from './context/ChatContext';
+import Login from './components/Auth/Login';
+import Registration from './components/Auth/Registration';
+import Dashboard from './components/Dashboard/Dashboard';
+import AdminDashboard from './components/Dashboard/AdminDashboard';
+import Chat from './components/Chat/Chat';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.js'
+import Header from './components/Header';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <TaskProvider>
+        <ChatProvider>
+        <Header/>
+
+            <Routes>
+
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Registration />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/chat" element={<Chat />} />
+              <Route path="/" element={<Login />} />
+            </Routes>
+          
+        </ChatProvider>
+      </TaskProvider>
+    </AuthProvider>
   );
-}
+};
 
 export default App;
